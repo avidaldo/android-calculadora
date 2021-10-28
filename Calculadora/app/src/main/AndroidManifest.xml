@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Calculadora">
         <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
             android:name=".CalculadoraActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <!-- screenOrientation permite fijar que la aplicación siempre funcione en vertical -->
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

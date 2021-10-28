@@ -3,289 +3,365 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grisFondo"
+
     tools:context=".CalculadoraActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:text="0"
-        android:textSize="90sp"
-        android:gravity="bottom|end"
+
+    <!-- Guidelines -->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33" />
+
+
+    <!-- Pantalla -->
+
+    <TextView android:id="@+id/tvOperacion"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#D3CCCC"
+        android:gravity="right|bottom"
+        app:layout_constraintBottom_toTopOf="@id/guideline1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/TextView"
+    <TextView android:id="@+id/tvPantalla"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        android:background="#4444"
-        app:layout_constraintBottom_toTopOf="@+id/TextView5"
-        app:layout_constraintEnd_toStartOf="@+id/TextView2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/TextView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView"
-        app:layout_constraintEnd_toStartOf="@+id/TextView3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/TextView"
-        app:layout_constraintTop_toTopOf="@+id/TextView" />
-
-    <TextView
-        android:id="@+id/TextView3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView"
-        app:layout_constraintEnd_toStartOf="@+id/TextView4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/TextView2"
-        app:layout_constraintTop_toTopOf="@+id/TextView" />
-
-    <TextView
-        android:id="@+id/TextView4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView"
+        android:background="#D3CCCC"
+        android:gravity="right|bottom"
+        android:text="0"
+        android:textSize="80sp"
+        app:layout_constraintBottom_toTopOf="@id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/TextView3"
-        app:layout_constraintTop_toTopOf="@+id/TextView" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline1" />
+
+    <!-- Botones Memoria -->
+
+    <TextView android:id="@+id/tvMC"
+        style="@style/CalcBotonM"
+        android:text="MC"
+        android:enabled="false"
+        app:layout_constraintTop_toTopOf="@id/guideline2"
+        app:layout_constraintBottom_toTopOf="@id/guideline3"
+        app:layout_constraintEnd_toStartOf="@id/tvMR"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView android:id="@+id/tvMR"
+        style="@style/CalcBotonM"
+        android:text="M"
+        android:enabled="false"
+        app:layout_constraintTop_toTopOf="@id/guideline2"
+        app:layout_constraintBottom_toTopOf="@id/guideline3"
+        app:layout_constraintEnd_toStartOf="@id/tvMsum"
+        app:layout_constraintStart_toEndOf="@id/tvMC" />
 
     <TextView
-        android:id="@+id/TextView5"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/TextView6"
-        app:layout_constraintEnd_toEndOf="@+id/TextView"
-        app:layout_constraintStart_toStartOf="@+id/TextView"
-        app:layout_constraintTop_toBottomOf="@+id/TextView" />
+        android:id="@+id/tvMsum"
+        style="@style/CalcBotonM"
+        android:text="M+"
+        app:layout_constraintTop_toTopOf="@id/guideline2"
+        app:layout_constraintBottom_toTopOf="@id/guideline3"
+        app:layout_constraintEnd_toStartOf="@id/tvMrestar"
+        app:layout_constraintStart_toEndOf="@id/tvMR" />
 
     <TextView
-        android:id="@+id/TextView6"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/TextView7"
-        app:layout_constraintEnd_toEndOf="@+id/TextView5"
-        app:layout_constraintStart_toStartOf="@+id/TextView"
-        app:layout_constraintTop_toBottomOf="@+id/TextView5" />
+        android:id="@+id/tvMrestar"
+        style="@style/CalcBotonM"
+        android:text="M-"
+        app:layout_constraintTop_toTopOf="@id/guideline2"
+        app:layout_constraintBottom_toTopOf="@id/guideline3"
+        app:layout_constraintEnd_toStartOf="@id/MS"
+        app:layout_constraintStart_toEndOf="@id/tvMsum" />
 
     <TextView
-        android:id="@+id/TextView7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/TextView8"
-        app:layout_constraintEnd_toEndOf="@+id/TextView5"
-        app:layout_constraintStart_toStartOf="@+id/TextView"
-        app:layout_constraintTop_toBottomOf="@+id/TextView6" />
+        android:id="@+id/MS"
+        style="@style/CalcBotonM"
+        android:text="MS"
+        app:layout_constraintTop_toTopOf="@id/guideline2"
+        app:layout_constraintBottom_toTopOf="@id/guideline3"
+        app:layout_constraintEnd_toStartOf="@id/textView32"
+        app:layout_constraintStart_toEndOf="@id/tvMrestar" />
 
     <TextView
-        android:id="@+id/TextView8"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/TextView9"
-        app:layout_constraintEnd_toEndOf="@+id/TextView5"
-        app:layout_constraintStart_toStartOf="@+id/TextView"
-        app:layout_constraintTop_toBottomOf="@+id/TextView7" />
+        android:id="@+id/textView32"
+        style="@style/CalcBotonM"
+        android:enabled="false"
+        android:text="M\u25BE"
+        app:layout_constraintTop_toTopOf="@id/guideline2"
+        app:layout_constraintBottom_toTopOf="@id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/MS" />
+
+
+    <!-- Botones: cadena horizontal -->
+
+
+
+    <!-- TODO: clickable -->
 
     <TextView
-        android:id="@+id/TextView9"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
+        android:id="@+id/tv11Percent"
+        android:text="%"
+
+        android:foreground="?attr/selectableItemBackground"
+
+        style="@style/CalcButtonGray"
+
+        android:layout_margin="2dp"
+
+        app:layout_constraintTop_toBottomOf="@id/guideline3"
+        app:layout_constraintBottom_toTopOf="@id/tv21Inverso"
+        app:layout_constraintEnd_toStartOf="@id/tv12CE"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/tv12CE"
+        style="@style/CalcButtonGray"
+        android:text="CE"
+
+        android:layout_marginHorizontal="2dp"
+        app:layout_constraintTop_toTopOf="@id/tv11Percent"
+        app:layout_constraintBottom_toBottomOf="@id/tv11Percent"
+        app:layout_constraintEnd_toStartOf="@id/tv11C"
+        app:layout_constraintStart_toEndOf="@id/tv11Percent" />
+
+    <TextView
+        android:id="@+id/tv11C"
+        style="@style/CalcButtonGray"
+        android:text="C"
+        android:layout_marginHorizontal="2dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv11Percent"
+        app:layout_constraintEnd_toStartOf="@id/tv14EraseLeft"
+        app:layout_constraintStart_toEndOf="@id/tv12CE"
+        app:layout_constraintTop_toTopOf="@id/tv11Percent" />
+
+    <TextView
+        android:id="@+id/tv14EraseLeft"
+        style="@style/CalcButtonGray"
+        android:text="\u232B"
+        android:layout_marginHorizontal="2dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv11Percent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv11C"
+        app:layout_constraintTop_toTopOf="@id/tv11Percent" />
+    <!-- En el texto va el caracter unicode de 'Erase to the left' -->
+
+
+    <!-- Botones: Cadena vertical (exceptuando tv11Percent que es común a la horizontal -->
+
+
+    <TextView
+        android:id="@+id/tv21Inverso"
+        style="@style/CalcButtonGray"
+        android:text="1/x"
+        android:layout_marginVertical="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv31num7"
+        app:layout_constraintEnd_toEndOf="@+id/tv11Percent"
+        app:layout_constraintStart_toStartOf="@+id/tv11Percent"
+        app:layout_constraintTop_toBottomOf="@+id/tv11Percent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/tv31num7"
+        style="@style/CalcButtonWhite"
+        android:text="7"
+        android:layout_marginVertical="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv41num4"
+        app:layout_constraintEnd_toEndOf="@+id/tv11Percent"
+        app:layout_constraintStart_toStartOf="@+id/tv11Percent"
+        app:layout_constraintTop_toBottomOf="@+id/tv21Inverso" />
+
+    <TextView
+        android:id="@+id/tv41num4"
+        style="@style/CalcButtonWhite"
+        android:text="4"
+        android:layout_marginVertical="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv51num1"
+        app:layout_constraintEnd_toEndOf="@+id/tv11Percent"
+        app:layout_constraintStart_toStartOf="@+id/tv11Percent"
+        app:layout_constraintTop_toBottomOf="@+id/tv31num7" />
+
+    <TextView
+        android:id="@+id/tv51num1"
+        style="@style/CalcButtonWhite"
+        android:text="1"
+        android:layout_marginVertical="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv61negate"
+        app:layout_constraintEnd_toEndOf="@+id/tv11Percent"
+        app:layout_constraintStart_toStartOf="@+id/tv11Percent"
+        app:layout_constraintTop_toBottomOf="@+id/tv41num4" />
+
+    <TextView
+        android:id="@+id/tv61negate"
+        style="@style/CalcButtonWhite"
+        android:text="+/-"
+        android:layout_marginVertical="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/TextView5"
-        app:layout_constraintStart_toStartOf="@+id/TextView"
-        app:layout_constraintTop_toBottomOf="@+id/TextView8" />
+        app:layout_constraintEnd_toEndOf="@+id/tv11Percent"
+        app:layout_constraintStart_toStartOf="@+id/tv11Percent"
+        app:layout_constraintTop_toBottomOf="@+id/tv51num1" />
+
+
+    <!-- Resto de botones -->
 
     <TextView
-        android:id="@+id/TextView10"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView5"
-        app:layout_constraintEnd_toEndOf="@+id/TextView2"
-        app:layout_constraintStart_toStartOf="@+id/TextView2"
-        app:layout_constraintTop_toTopOf="@+id/TextView5" />
+        android:id="@+id/tv22Cuadrado"
+        style="@style/CalcButtonGray"
+        android:text="x\u00B2"
+        app:layout_constraintBottom_toBottomOf="@+id/tv21Inverso"
+        app:layout_constraintEnd_toEndOf="@+id/tv12CE"
+        app:layout_constraintStart_toStartOf="@+id/tv12CE"
+        app:layout_constraintTop_toTopOf="@+id/tv21Inverso" />
 
     <TextView
-        android:id="@+id/TextView11"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView5"
-        app:layout_constraintEnd_toEndOf="@+id/TextView3"
-        app:layout_constraintStart_toEndOf="@+id/TextView2"
-        app:layout_constraintTop_toBottomOf="@+id/TextView" />
+        android:id="@+id/tv23Raiz"
+        style="@style/CalcButtonGray"
+        android:text="\u221A"
+        app:layout_constraintBottom_toBottomOf="@+id/tv21Inverso"
+        app:layout_constraintEnd_toEndOf="@+id/tv11C"
+        app:layout_constraintStart_toStartOf="@+id/tv11C"
+        app:layout_constraintTop_toTopOf="@+id/tv21Inverso" />
 
     <TextView
-        android:id="@+id/TextView12"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView5"
-        app:layout_constraintEnd_toEndOf="@+id/TextView4"
-        app:layout_constraintStart_toEndOf="@+id/TextView3"
-        app:layout_constraintTop_toBottomOf="@+id/TextView" />
+        android:id="@+id/tv24opDividir"
+        style="@style/CalcButtonGray"
+        android:text="/"
+        app:layout_constraintBottom_toBottomOf="@+id/tv21Inverso"
+        app:layout_constraintEnd_toEndOf="@+id/tv14EraseLeft"
+        app:layout_constraintStart_toStartOf="@+id/tv14EraseLeft"
+        app:layout_constraintTop_toTopOf="@+id/tv21Inverso" />
 
     <TextView
-        android:id="@+id/TextView13"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView6"
-        app:layout_constraintEnd_toEndOf="@+id/TextView2"
-        app:layout_constraintStart_toStartOf="@+id/TextView2"
-        app:layout_constraintTop_toBottomOf="@+id/TextView5" />
+        android:id="@+id/tv32num8"
+        style="@style/CalcButtonWhite"
+        android:text="8"
+        app:layout_constraintBottom_toBottomOf="@+id/tv31num7"
+        app:layout_constraintEnd_toEndOf="@+id/tv12CE"
+        app:layout_constraintStart_toStartOf="@+id/tv12CE"
+        app:layout_constraintTop_toTopOf="@+id/tv31num7" />
 
     <TextView
-        android:id="@+id/TextView14"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView6"
-        app:layout_constraintEnd_toEndOf="@+id/TextView3"
-        app:layout_constraintStart_toEndOf="@+id/TextView2"
-        app:layout_constraintTop_toBottomOf="@+id/TextView5" />
+        android:id="@+id/tv33num9"
+        style="@style/CalcButtonWhite"
+        android:text="9"
+        app:layout_constraintBottom_toBottomOf="@+id/tv31num7"
+        app:layout_constraintEnd_toEndOf="@+id/tv11C"
+        app:layout_constraintStart_toStartOf="@+id/tv11C"
+        app:layout_constraintTop_toTopOf="@+id/tv31num7" />
 
     <TextView
-        android:id="@+id/TextView15"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView6"
-        app:layout_constraintEnd_toEndOf="@+id/TextView4"
-        app:layout_constraintStart_toEndOf="@+id/TextView3"
-        app:layout_constraintTop_toBottomOf="@+id/TextView5" />
+        android:id="@+id/tv34opMultiplica"
+        style="@style/CalcButtonGray"
+        android:text="\u00D7"
+        app:layout_constraintBottom_toBottomOf="@+id/tv31num7"
+        app:layout_constraintEnd_toEndOf="@+id/tv14EraseLeft"
+        app:layout_constraintStart_toStartOf="@+id/tv14EraseLeft"
+        app:layout_constraintTop_toTopOf="@+id/tv31num7" />
 
     <TextView
-        android:id="@+id/TextView16"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView7"
-        app:layout_constraintEnd_toEndOf="@+id/TextView2"
-        app:layout_constraintStart_toStartOf="@+id/TextView2"
-        app:layout_constraintTop_toBottomOf="@+id/TextView6" />
+        android:id="@+id/tv42num5"
+        style="@style/CalcButtonWhite"
+        android:text="5"
+        app:layout_constraintBottom_toBottomOf="@+id/tv41num4"
+        app:layout_constraintEnd_toEndOf="@+id/tv12CE"
+        app:layout_constraintStart_toStartOf="@+id/tv12CE"
+        app:layout_constraintTop_toTopOf="@+id/tv41num4" />
 
     <TextView
-        android:id="@+id/TextView17"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView7"
-        app:layout_constraintEnd_toEndOf="@+id/TextView3"
-        app:layout_constraintStart_toEndOf="@+id/TextView2"
-        app:layout_constraintTop_toBottomOf="@+id/TextView6" />
+        android:id="@+id/tv43num6"
+        style="@style/CalcButtonWhite"
+        android:text="6"
+        app:layout_constraintBottom_toBottomOf="@+id/tv41num4"
+        app:layout_constraintEnd_toEndOf="@+id/tv11C"
+        app:layout_constraintStart_toStartOf="@+id/tv11C"
+        app:layout_constraintTop_toTopOf="@+id/tv41num4" />
 
     <TextView
-        android:id="@+id/TextView18"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView7"
-        app:layout_constraintEnd_toEndOf="@+id/TextView4"
-        app:layout_constraintStart_toEndOf="@+id/TextView3"
-        app:layout_constraintTop_toBottomOf="@+id/TextView6" />
+        android:id="@+id/tv44opResta"
+        style="@style/CalcButtonGray"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="@+id/tv41num4"
+        app:layout_constraintEnd_toEndOf="@+id/tv14EraseLeft"
+        app:layout_constraintStart_toStartOf="@+id/tv14EraseLeft"
+        app:layout_constraintTop_toTopOf="@+id/tv41num4" />
 
     <TextView
-        android:id="@+id/TextView19"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView8"
-        app:layout_constraintEnd_toEndOf="@+id/TextView2"
-        app:layout_constraintStart_toStartOf="@+id/TextView2"
-        app:layout_constraintTop_toBottomOf="@+id/TextView7" />
+        android:id="@+id/tv52num2"
+        style="@style/CalcButtonWhite"
+        android:text="2"
+        app:layout_constraintBottom_toBottomOf="@+id/tv51num1"
+        app:layout_constraintEnd_toEndOf="@+id/tv12CE"
+        app:layout_constraintStart_toStartOf="@+id/tv12CE"
+        app:layout_constraintTop_toTopOf="@+id/tv51num1" />
 
     <TextView
-        android:id="@+id/TextView20"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView8"
-        app:layout_constraintEnd_toEndOf="@+id/TextView3"
-        app:layout_constraintStart_toEndOf="@+id/TextView2"
-        app:layout_constraintTop_toBottomOf="@+id/TextView7" />
+        android:id="@+id/tv53num3"
+        style="@style/CalcButtonWhite"
+        android:text="3"
+        app:layout_constraintBottom_toBottomOf="@+id/tv51num1"
+        app:layout_constraintEnd_toEndOf="@+id/tv11C"
+        app:layout_constraintStart_toStartOf="@+id/tv11C"
+        app:layout_constraintTop_toTopOf="@+id/tv51num1" />
 
     <TextView
-        android:id="@+id/TextView21"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/TextView8"
-        app:layout_constraintEnd_toEndOf="@+id/TextView4"
-        app:layout_constraintStart_toEndOf="@+id/TextView3"
-        app:layout_constraintTop_toBottomOf="@+id/TextView7" />
+        android:id="@+id/tv54opSuma"
+        style="@style/CalcButtonGray"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="@+id/tv51num1"
+        app:layout_constraintEnd_toEndOf="@+id/tv14EraseLeft"
+        app:layout_constraintStart_toStartOf="@+id/tv14EraseLeft"
+        app:layout_constraintTop_toTopOf="@+id/tv51num1" />
 
     <TextView
-        android:id="@+id/TextView22"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/TextView2"
-        app:layout_constraintStart_toStartOf="@+id/TextView2"
-        app:layout_constraintTop_toBottomOf="@+id/TextView8" />
+        android:id="@+id/tv62num0"
+        style="@style/CalcButtonWhite"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/tv61negate"
+        app:layout_constraintEnd_toEndOf="@+id/tv12CE"
+        app:layout_constraintStart_toStartOf="@+id/tv12CE"
+        app:layout_constraintTop_toTopOf="@+id/tv61negate" />
 
     <TextView
-        android:id="@+id/TextView23"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/TextView3"
-        app:layout_constraintStart_toEndOf="@+id/TextView2"
-        app:layout_constraintTop_toBottomOf="@+id/TextView8" />
+        android:id="@+id/tv63decimal"
+        style="@style/CalcButtonWhite"
+        android:text=","
+        app:layout_constraintBottom_toBottomOf="@+id/tv61negate"
+        app:layout_constraintEnd_toEndOf="@+id/tv11C"
+        app:layout_constraintStart_toStartOf="@+id/tv11C"
+        app:layout_constraintTop_toTopOf="@+id/tv61negate" />
 
     <TextView
-        android:id="@+id/TextView24"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/TextView4"
-        app:layout_constraintStart_toEndOf="@+id/TextView3"
-        app:layout_constraintTop_toBottomOf="@+id/TextView8" />
+        android:id="@+id/tv64opIgual"
+        style="@style/CalcButtonGray"
+        android:background="@android:color/holo_blue_bright"
+        android:text="="
+        app:layout_constraintBottom_toBottomOf="@+id/tv61negate"
+        app:layout_constraintEnd_toEndOf="@+id/tv14EraseLeft"
+        app:layout_constraintStart_toStartOf="@+id/tv14EraseLeft"
+        app:layout_constraintTop_toTopOf="@+id/tv61negate" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
