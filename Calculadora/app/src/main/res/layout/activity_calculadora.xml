@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grisFondo"
+    android:padding="2dp"
 
     tools:context=".CalculadoraActivity">
 
@@ -37,20 +38,14 @@
     <!-- Pantalla -->
 
     <TextView android:id="@+id/tvOperacion"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#D3CCCC"
-        android:gravity="right|bottom"
+        style="@style/Display"
         app:layout_constraintBottom_toTopOf="@id/guideline1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView android:id="@+id/tvPantalla"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#D3CCCC"
-        android:gravity="right|bottom"
+        style="@style/Display"
         android:text="0"
         android:textSize="80sp"
         app:layout_constraintBottom_toTopOf="@id/guideline2"
@@ -60,7 +55,8 @@
 
     <!-- Botones Memoria -->
 
-    <TextView android:id="@+id/tvMC"
+    <TextView
+        android:id="@+id/tvMC"
         style="@style/CalcBotonM"
         android:text="MC"
         android:enabled="false"
@@ -69,7 +65,8 @@
         app:layout_constraintEnd_toStartOf="@id/tvMR"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView android:id="@+id/tvMR"
+    <TextView
+        android:id="@+id/tvMR"
         style="@style/CalcBotonM"
         android:text="M"
         android:enabled="false"
@@ -102,11 +99,11 @@
         android:text="MS"
         app:layout_constraintTop_toTopOf="@id/guideline2"
         app:layout_constraintBottom_toTopOf="@id/guideline3"
-        app:layout_constraintEnd_toStartOf="@id/textView32"
+        app:layout_constraintEnd_toStartOf="@id/tvMHistorial"
         app:layout_constraintStart_toEndOf="@id/tvMrestar" />
 
     <TextView
-        android:id="@+id/textView32"
+        android:id="@+id/tvMHistorial"
         style="@style/CalcBotonM"
         android:enabled="false"
         android:text="M\u25BE"
@@ -120,16 +117,11 @@
 
 
 
-    <!-- TODO: clickable -->
 
     <TextView
         android:id="@+id/tv11Percent"
         android:text="%"
-
-        android:foreground="?attr/selectableItemBackground"
-
         style="@style/CalcButtonGray"
-
         android:layout_margin="2dp"
 
         app:layout_constraintTop_toBottomOf="@id/guideline3"
@@ -142,15 +134,15 @@
         android:id="@+id/tv12CE"
         style="@style/CalcButtonGray"
         android:text="CE"
-
         android:layout_marginHorizontal="2dp"
+
         app:layout_constraintTop_toTopOf="@id/tv11Percent"
         app:layout_constraintBottom_toBottomOf="@id/tv11Percent"
-        app:layout_constraintEnd_toStartOf="@id/tv11C"
+        app:layout_constraintEnd_toStartOf="@id/tv13C"
         app:layout_constraintStart_toEndOf="@id/tv11Percent" />
 
     <TextView
-        android:id="@+id/tv11C"
+        android:id="@+id/tv13C"
         style="@style/CalcButtonGray"
         android:text="C"
         android:layout_marginHorizontal="2dp"
@@ -166,7 +158,7 @@
         android:layout_marginHorizontal="2dp"
         app:layout_constraintBottom_toBottomOf="@id/tv11Percent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv11C"
+        app:layout_constraintStart_toEndOf="@id/tv13C"
         app:layout_constraintTop_toTopOf="@id/tv11Percent" />
     <!-- En el texto va el caracter unicode de 'Erase to the left' -->
 
@@ -184,7 +176,7 @@
         app:layout_constraintStart_toStartOf="@+id/tv11Percent"
         app:layout_constraintTop_toBottomOf="@+id/tv11Percent" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/tv31num7"
         style="@style/CalcButtonWhite"
         android:text="7"
@@ -241,8 +233,8 @@
         style="@style/CalcButtonGray"
         android:text="\u221A"
         app:layout_constraintBottom_toBottomOf="@+id/tv21Inverso"
-        app:layout_constraintEnd_toEndOf="@+id/tv11C"
-        app:layout_constraintStart_toStartOf="@+id/tv11C"
+        app:layout_constraintEnd_toEndOf="@+id/tv13C"
+        app:layout_constraintStart_toStartOf="@+id/tv13C"
         app:layout_constraintTop_toTopOf="@+id/tv21Inverso" />
 
     <TextView
@@ -268,8 +260,8 @@
         style="@style/CalcButtonWhite"
         android:text="9"
         app:layout_constraintBottom_toBottomOf="@+id/tv31num7"
-        app:layout_constraintEnd_toEndOf="@+id/tv11C"
-        app:layout_constraintStart_toStartOf="@+id/tv11C"
+        app:layout_constraintEnd_toEndOf="@+id/tv13C"
+        app:layout_constraintStart_toStartOf="@+id/tv13C"
         app:layout_constraintTop_toTopOf="@+id/tv31num7" />
 
     <TextView
@@ -295,8 +287,8 @@
         style="@style/CalcButtonWhite"
         android:text="6"
         app:layout_constraintBottom_toBottomOf="@+id/tv41num4"
-        app:layout_constraintEnd_toEndOf="@+id/tv11C"
-        app:layout_constraintStart_toStartOf="@+id/tv11C"
+        app:layout_constraintEnd_toEndOf="@+id/tv13C"
+        app:layout_constraintStart_toStartOf="@+id/tv13C"
         app:layout_constraintTop_toTopOf="@+id/tv41num4" />
 
     <TextView
@@ -322,8 +314,8 @@
         style="@style/CalcButtonWhite"
         android:text="3"
         app:layout_constraintBottom_toBottomOf="@+id/tv51num1"
-        app:layout_constraintEnd_toEndOf="@+id/tv11C"
-        app:layout_constraintStart_toStartOf="@+id/tv11C"
+        app:layout_constraintEnd_toEndOf="@+id/tv13C"
+        app:layout_constraintStart_toStartOf="@+id/tv13C"
         app:layout_constraintTop_toTopOf="@+id/tv51num1" />
 
     <TextView
@@ -349,19 +341,22 @@
         style="@style/CalcButtonWhite"
         android:text=","
         app:layout_constraintBottom_toBottomOf="@+id/tv61negate"
-        app:layout_constraintEnd_toEndOf="@+id/tv11C"
-        app:layout_constraintStart_toStartOf="@+id/tv11C"
+        app:layout_constraintEnd_toEndOf="@+id/tv13C"
+        app:layout_constraintStart_toStartOf="@+id/tv13C"
         app:layout_constraintTop_toTopOf="@+id/tv61negate" />
 
     <TextView
         android:id="@+id/tv64opIgual"
         style="@style/CalcButtonGray"
-        android:background="@android:color/holo_blue_bright"
         android:text="="
         app:layout_constraintBottom_toBottomOf="@+id/tv61negate"
         app:layout_constraintEnd_toEndOf="@+id/tv14EraseLeft"
         app:layout_constraintStart_toStartOf="@+id/tv14EraseLeft"
         app:layout_constraintTop_toTopOf="@+id/tv61negate" />
+
+    <!-- Con ?attr hago referencia a un recurso definido no como elemento de un xml sino
+    como atributo. En este caso el atriburto "colorSecondaryVariant" de los temas -->
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

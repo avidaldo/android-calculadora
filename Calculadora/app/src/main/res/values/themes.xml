@@ -13,4 +13,40 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="ButtonBase">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <!-- Este atributo genera el efecto de ola al pulsar el botón. Lo ponemos en
+        foreground para poner definir en background el color de fondo. El efecto solo de ve cuando
+        hay un onClickListener asignado al botón -->
+    </style>
+
+    <style name="CalcBotonM" parent="ButtonBase">
+        <item name="android:background">@color/grisClaro</item>
+    </style>
+
+    <style name="CalcButtonGray" parent="ButtonBase">
+        <item name="android:background">@color/grisClaro</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="CalcButtonWhite" parent="ButtonBase">
+        <item name="android:background">@color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Display">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@color/grisClaro</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:gravity">right|bottom</item>
+    </style>
+
 </resources>
